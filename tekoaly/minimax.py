@@ -3,7 +3,7 @@ import numpy as np
 from toiminnot import tarkista_voitto, siirra, vapaa_rivi
 from tekoaly.pisteytys import pisteyta
 
-SYVYYS = 5
+SYVYYS = 8
 JARJESTYS = [3,4,2,5,1,6,0]
 
 def paras_siirto(lauta: list, siirtojen_maara: int):

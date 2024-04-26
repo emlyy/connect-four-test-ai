@@ -6,6 +6,7 @@ from toiminnot import sallittu_siirto, vapaa_rivi
 
 peli = PeliLauta()
 peli.uusi_peli()
+siirrot = 42
 
 def siirto(sarake: int, pelaaja: int):
         """Kutsuu tarvittavat funktiot siirtoa varten.
@@ -19,7 +20,7 @@ def siirto(sarake: int, pelaaja: int):
         """
         lauta = peli.lauta
         if sallittu_siirto(lauta, sarake):
-            rivi = vapaa_rivi(lauta, sarake)
+            rivi = vapaa_rivi(peli.lauta, sarake)
             peli.paivita_lauta(rivi, sarake, pelaaja)
             return True
         return False
@@ -27,12 +28,17 @@ def siirto(sarake: int, pelaaja: int):
 def main():
     while True:
         vastustajan_siirto = input()
+        print(f"opponent move {vastustajan_siirto}")
         time.sleep(random.randrange(1,10)/100)
         if vastustajan_siirto.startswith("RESET:"):
             peli.uusi_peli()
             print("Board reset!")
+            print(f"pelilauta {peli.lauta}!")
+            siirrot = 42
         elif vastustajan_siirto.startswith("PLAY:"):
-            valinta = paras_siirto(peli.lauta, 2)
+            valinta = paras_siirto(peli.lauta, siirrot)
+            siirto(valinta, 2)
+            siirrot -= 1
             # example about logs
             print(f"I chose {valinta}!")
             print(f"pelilauta {peli.lauta}!")
@@ -41,7 +47,9 @@ def main():
         elif vastustajan_siirto.startswith("MOVE:"):
             vas_valinta = vastustajan_siirto.removeprefix("MOVE:")
             siirto(int(vastustajan_siirto.removeprefix("MOVE:")), 1)
+            siirrot -= 1
             print(f"Received move: {vas_valinta}")
+            print(f"pelilauta {peli.lauta}!")
         else:
             print(f"Unknown tag: {vastustajan_siirto}")
             break
