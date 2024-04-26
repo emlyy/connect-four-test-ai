@@ -1,4 +1,5 @@
-from config import RIVIT, SARAKKEET
+RIVIT = 6
+SARAKKEET = 7
 
 def siirra(lauta: list, rivi: int, sarake: int, vuoro: int):
     """Päivittää siirron annettuun matriisiin.

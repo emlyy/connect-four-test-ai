@@ -2,7 +2,9 @@ from copy import deepcopy
 import numpy as np
 from toiminnot import tarkista_voitto, siirra, vapaa_rivi
 from tekoaly.pisteytys import pisteyta
-from config import SYVYYS, JARJESTYS
+
+SYVYYS = 5
+JARJESTYS = [3,4,2,5,1,6,0]
 
 def paras_siirto(lauta: list, siirtojen_maara: int):
     """Kokeilee siirtovaihtoehdot keskeltä ulospäin käyttäen minimax algoritmia ja

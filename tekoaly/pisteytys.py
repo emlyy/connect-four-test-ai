@@ -1,4 +1,5 @@
-from config import RIVIT, SARAKKEET
+RIVIT = 6
+SARAKKEET = 7
 
 def pisteyta(lauta: list, pelaaja: int, syvyys: int):
     """Arvioi pelaajan aseman pelissä.
