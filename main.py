@@ -30,7 +30,18 @@ def main():
         vastustajan_siirto = input()
         print(f"opponent move {vastustajan_siirto}")
         time.sleep(random.randrange(1,10)/100)
-        if vastustajan_siirto.startswith("RESET:"):
+        if vastustajan_siirto.startswith("BOARD:"):
+            peli.uusi_peli()
+            pelatut_siirrot = vastustajan_siirto.removeprefix("BOARD:").split(",")
+            siirrot = 42
+            for index, i in enumerate(pelatut_siirrot):
+                vuoro = 2
+                if index % 2 == 0:
+                    vuoro = 1
+                siirto(int(i), vuoro)
+                siirrot -= 1
+            print("BOARD RESET")
+        elif vastustajan_siirto.startswith("RESET:"):
             peli.uusi_peli()
             print("Board reset!")
             print(f"pelilauta {peli.lauta}!")
