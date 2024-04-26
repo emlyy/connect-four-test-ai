@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "connect-four-test-ai"
+version = "0.1.0"
+description = "a test connect four ai for tira ai platform"
+authors = ["Emilia Kupsanen <92013457+emlyy@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "^1.0.1"
+numpy = "^1.26.4"
+invoke = "^2.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
